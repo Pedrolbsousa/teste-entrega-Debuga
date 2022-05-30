@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+.cabeca {
+    position: absolute;
+    width: 100%;
+    height: 55px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+
+    background: #54b357;
+    box-shadow: 0px 4px 40px -20px rgba(0, 0, 0,);
+}
+figure.logo {
+    background: url(../img/logo.png) no-repeat;
+    background-size: 100%;
+    height: 55px;
+    width: 155px;
+}
+.principal {
+    position: absolute;
+    width: 1171px;
+    height: 828px;
+    left: 146px;
+    top: 94px;
+
+}
+nav {
+    display: flex;
+    height: 32px;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.buscar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.menu {
+    color: #54b357;
+    font-family: 'Poppins', sans-serif;
+
+    background-color: #f1f3f5;
+    border: 0px solid;
+    border-radius: 4px;
+    height: 32px;
+}
+.menu:hover {
+    color: #fff;
+    background-color: #54b357;
+    font-weight: bolder;
+}
+.pesquisa {
+    margin: 5px;
+    background: url(../img/icone/pesquisa.png) no-repeat;
+    background-size: 78%;
+    background-color: #54b357;
+    border-radius: 4px;
+    border: 0px;
+    width: 40px;
+    height: 32px;
+    font-family: 'Poppins', sans-serif;
+}
+.text {
+    background-color: #f1f3f5;
+    border: 0px solid #f1f3f5;
+    border-radius: 4px;
+    height: 32px;
+    padding-left: 12px;
+}
+.somaTotal {
+    display: flex;
+    width: 78%;
+    height: 45px;
+    margin: 3% 0% 0% 11%;
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 30px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.valorTotal {
+    margin: 5px;
+    height: 35px;
+    width: 70px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+.textoValorTotal {
+    background: url(../img/icone/alert-circle.png) no-repeat;
+    background-size: 6%;
+    padding-left: 30px;
+    margin-left: 5px;
+
+}
+.produtos{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+.card {
+    width: 274px;
+    height: 340px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+}
+figure {
+    width: 274px;
+    height: 175px;
+}
+.imgCard {
+    background-size: 100%;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+footer {
+        height: 55px;
+        box-shadow: 0px 4px 30px -10px rgba(0, 0, 0, 0.25);
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-top: 912px;
+}
+.imgRodaPe {
+        background: url(../img/rodape.png) no-repeat;
+        background-size: 100%;
+        height: 55px;
+        width: 155px;
+}
