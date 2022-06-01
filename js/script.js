@@ -1,14 +1,3 @@
-const hortifruit   = [];
-console.log(hortifruit)
-const laticinio    = [];
-console.log(laticinio)
-const panificadora = [];
-console.log(panificadora)
-const todosProdutos = [];
-console.log(todosProdutos)
-const somaTudo = (0);
-console.log(somaTudo);
-
 function criarMain ( ){
     const body      = document.querySelector("body");
     const cabecalho = document.createElement("header");
@@ -34,6 +23,7 @@ function criarMenu( ) {
     const pesquisa  = document.createElement("button");
     const buscar    = document.createElement("div");
     const input     = document.createElement("input");
+
     input.classList.add     ("text");
     buscar.classList.add    ("buscar");
     button_01.classList.add ("menu");
@@ -42,9 +32,9 @@ function criarMenu( ) {
     button_04.classList.add ("menu");
     main.classList.add      ("principal");
     pesquisa.classList.add  ("pesquisa")
-
+    
     button_01.innerText = ("Todos Produtos");
-    button_02.innerText = ("Hortifruit");
+    button_02.innerText = ("Hortifruti");
     button_03.innerText = ("Panificadora");
     button_04.innerText = ("Laticínios");
 
@@ -60,15 +50,38 @@ function criarMenu( ) {
     buscar.appendChild  (input);
     buscar.appendChild  (pesquisa);
 
+    //MENU E FILTROS
+    // Todos Produtos
+    button_01.addEventListener('click', function() {montarDados(produtos) })
+    // Hortifruti
+    function filtraHort (){
+                const filtrados = produtos.filter((produto) => {return produto.secao == 'Hortifruti'});
+                return filtrados
+    }
+    button_02.addEventListener('click', function() {
+        const produtoHort = filtraHort()
+        
+        montarDados(produtoHort)
+    });
+    // Panificadora
+    button_03.addEventListener('click', function() {const prodPanif = produtos.filter(function filterPanif(produto){
+        return produto.secao == "Panificadora";})
+        montarDados(prodPanif); })
+    // Laticinios
+    button_04.addEventListener('click', function() {const prodLatic = produtos.filter(function filterLatic (produto){
+        return produto.secao == "Laticínio";
+    })
+    montarDados(prodLatic);})
+
 }
 criarMenu()
-
 
 function somaTotal(){
     for(let i = 0; i < produtos.length;i++){
         produtos[i].precosomaTudo += produtos[i].preco;
+        const itenstotal = document.querySelector("valorTotal")
          }
-
+    
     const main       = document.querySelector("main");
     const somaTotal  = document.createElement("div");
     const valorTotal = document.createElement("div");
@@ -80,19 +93,18 @@ function somaTotal(){
     valorTotal.classList.add    ("valorTotal");
 
     paragrafo.innerText = ("Valor total dos produtos da sessão selecionada");
-    valorTotal.innerText= ("R$ 35,00")
+    valorTotal.innerText= ("R$ 35,00");
     
     
-    main.append           (somaTotal);
+    main.append      (somaTotal);
     somaTotal.append (paragrafo);
     somaTotal.append (valorTotal);
    
 }
 somaTotal()
-tegProduto ( )
+
 
 function criarCard(item){
-    console.log(item.categoria)
     //criando todos as tegs do card.
     const prodCar       = document.querySelector(".produtos");
     const card          = document.createElement("section");
@@ -102,6 +114,7 @@ function criarCard(item){
     const titulo        = document.createElement("p");
     const tipo          = document.createElement("p")
     const valorProduto  = document.createElement("p")
+    //prodCar.innerHTML = '';
 
     //atribuindo classes pras tags.
     card.classList.add             ("card");
@@ -112,11 +125,11 @@ function criarCard(item){
     valorProduto.classList.add     ("titulo");
 
     //atribuindo conteudo para tags.
-    img.src                = prodCar.img;
-    img.alt                = prodCar.titulo;
-    titulo.innerHTML       = `${prodCar.nome}`
-    tipo.innerHTML         = `${prodCar.secao}`
-    valorProduto.innerHTML = `R$ ${prodCar.preco}.00`
+    img.src                = item.img;
+    img.alt                = item.titulo;
+    titulo.innerHTML       = item.nome;
+    tipo.innerHTML         = item.secao;
+    valorProduto.innerHTML = `R$ ${item.preco},00`;
 
     //organização do card.
     card.append     (imgCard);
@@ -127,7 +140,6 @@ function criarCard(item){
     card.append     (infor);
     prodCar.append  (card);
 }
-criarCard(produtos)
 
 function tegProduto ( ){
     const main    = document.querySelector("main"); 
@@ -136,7 +148,8 @@ function tegProduto ( ){
 
     main.append (prodTeg);
 }
-criarCard( )
+tegProduto ( )
+
 function rodaPe(){
     const body      = document.querySelector("body");
     const footer    = document.createElement("footer"); 
@@ -153,20 +166,18 @@ function rodaPe(){
     footer.appendChild  (p);
 }
 rodaPe()
-function montarDados() {
-    console.log(produtos)
+function montarDados(produtos) {
+    let sum = 0;
+    // const main    = document.querySelector("main");
+    // main.innerHTML=''; //limpar o HTML
     for(let i = 0; i < produtos.length;i++){
+        sum += produtos[i].preco;
         const produto = produtos[i];
+        
         criarCard(produto)
-        if(produtos[i].tipo == 'Panificadora'){
-            panificadora.push(produto);
-        }if(produtos[i].tipo == 'Hortifruti'){
-            hortifruit.push(produto);
-        }if(produtos[i].tipo == 'Laticínio'){
-            laticinio.push(produto);
-        }else{
-            todosProdutos.push(produto);
-        }
+        
     }
-} 
-montarDados();
+    let valorFormatado = "R$ "+sum+",00";
+    console.log(valorFormatado);
+}
+montarDados(produtos);
